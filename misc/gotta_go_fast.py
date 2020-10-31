@@ -1,51 +1,28 @@
-#!/usr/bin/env python3
+import binascii
 
-import time
-from Crypto.Util.number import long_to_bytes
-import hashlib
-from utils import listener
-
-
-FLAG = b'crypto{????????????????????}'
-
-
-def generate_key():
-    current_time = int(time.time())
-    key = long_to_bytes(current_time)
-    return hashlib.sha256(key).digest()
+cipher1_flag = "e5db9fb69d3700592fb242ce7385676e3e423fb4babc5900d8477eae"
+cipher2 = "52d339b35ee159f4f6e8d78fc3d360a1e536fe628da1c94c699d36f7"
+message = "00000000000000000000000000000000000000000000000000000000"
+m_in_b = bytes.fromhex(message)
+print(m_in_b)
+cipher1 = bytes.fromhex(cipher1_flag)
+print(cipher1)
+cipher2 = bytes.fromhex(cipher2)
+print(cipher2)
 
 
-def encrypt(b):
-    key = generate_key()
-    assert len(b) <= len(key), "Data package too large to encrypt"
-    ciphertext = b''
-    for i in range(len(b)):
-        ciphertext += bytes([b[i] ^ key[i]])
-    return ciphertext.hex()
+#length_key = min(len(cipher2), len(m_in_b))
+#key = ""
+#for i in range(length_key):
+#    key = bytes([cipher2[i] ^ m_in_b[i]])
 
+#print(key)
 
-class Challenge():
-    def __init__(self):
-        self.before_input = "Gotta go fast!\n"
+#length_flag = min(len(cipher1), len(key))
 
-    def challenge(self, your_input):
-        if not 'option' in your_input:
-            return {"error": "You must send an option to this server"}
-
-        elif your_input['option'] == 'get_flag':
-            return {"encrypted_flag": encrypt(FLAG)}
-
-        elif your_input['option'] == 'encrypt_data':
-            input_data = bytes.fromhex(your_input['input_data'])
-            return {"encrypted_data": encrypt(input_data)}
-
-        else:
-            return {"error": "Invalid option"}
-
-
-"""
-When you connect, the 'challenge' function will be called on your JSON
-input.
-"""
-listener.start_server(port=13372)
+#for i in range(length_flag):
+#    flag = bytes([cipher1[i] ^ key[i]])
+#flag = bytes.fromhex("40b71d1417fbc257ff14f054c722ab46d41a7a55fba60349779585c1")
+flag = bytes.fromhex("40b71d1417fbc257ff14f054c722ab46d41a7a55fba60349779585c1").decode("ASCII")
+print(flag)
 
