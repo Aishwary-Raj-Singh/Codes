@@ -17,7 +17,7 @@ def add_round_key(s, k):
     for i in range(len(s)):
         for j in range(len(s[i])):
             s[i][j] ^= k[i][j]
-    return s
+#    return s
 
 def matrix2bytes(matrix):
     """ Converts a 4x4 matrix into a 16-byte array.  """
@@ -28,7 +28,6 @@ def matrix2bytes(matrix):
     res = ''.join(ele for sub in s for ele in sub)
     return res
 
-
-res = add_round_key(state, round_key)
-print(matrix2bytes(res))
+add_round_key(state, round_key)
+print(matrix2bytes(state))
 
