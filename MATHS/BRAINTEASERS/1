@@ -1,0 +1,30 @@
+results = [588, 665, 216, 113, 642, 4, 836, 114, 851, 492, 819, 237]
+
+for p in range(100,1000):
+    for x in range(1000):
+        if pow(x,1,p) == results[0]:
+            #print(x, p)
+            if pow(x,2,p) == results[1]:
+                #print(x, p)
+               if pow(x,3,p) == results[2]:
+                    #print(x, p)
+                    if pow(x,4,p) == results[3]:
+                        #print(x, p)
+                       if pow(x,5,p) == results[4]:
+                            #print(x, p)
+                            if pow(x,6,p) == results[5]:
+                                #print(x, p)
+                                if pow(x,7,p) == results[6]:
+                                    #print(x, p)
+                                    if pow(x,8,p) == results[7]:
+                                        #print(x, p)
+                                        if pow(x,9,p) == results[8]:
+                                            #print(x, p)
+                                            if pow(x,10,p) == results[9]:
+                                                #print(x, p)
+                                                if pow(x,11,p) == results[10]:
+                                                   # print(x, p)
+                                                    if pow(x,12,p) == results[11]:
+                                                        break;
+
+print(x, p)
