@@ -1,0 +1,6 @@
+n = 510143758735509025530880200653196460532653147
+
+#Used factorDB to calculate factors
+d =  19704762736204164635843
+
+print("Flag is : ", d)
