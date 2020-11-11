@@ -1,38 +1,50 @@
 import numpy as np
 import math
 
-v = [846835985, 9834798552]
-u = [87502093, 123094980]
+v1 = [846835985, 9834798552]
+v2 = [87502093, 123094980]
 
-def v_product(i ,j):
-    temp = []
-    for k in range(len(j)):
-        temp.append(i*j[k])
-    return temp
+print(v1)
+print(v2)
+if v1[0] > v2[0]:
+    if v1[1] > v2[1]:
+        print("v1 is greater than v2")
+        temp = v2
+        v2 = v1
+        v1 = temp
+        print(v1)
+        print(v2)
 
+#print("V1 is: ", v[0])
+#print("V2 is: ", v[1])
+#print("U1 is: ", u[0])
+#print("U2 is: ", u[1])
 
-def calculate_k(a, b):
-    return math.ceil(np.divide(np.dot(a, b), np.dot(a, a)))
-    
+#u1 = v1
 
-def reduction(c, d):
-    temp = []
-    if  c[0] < d[0] and c[1] < d[1]:
-        #temp = d
-        #d = c
-        #c = temp
-        m = calculate_k(c, d)
-        if m == 0:
-            print(np.dot(c, d))
-        else:
-            c = np.subtract(c, v_product(m, d))
-            reduction(c, d)
-    else:
-        print("u is less than v")
-        temp = d
-        d = c
-        c = temp
-        reduction(c, d)
+#print("U1: ", u1)
 
-reduction(v, u)
-#print(np.dot(v, u))
+k = np.dot(v2, v1)//np.dot(v1, v1)
+print("K :", math.floor(k))
+
+v2 = np.subtract(v2, np.dot(k, v1))
+print("Printing vectors:")
+print(v1)
+print(v2)
+if v1[0] > v2[0]:
+    if v1[1] > v2[1]:
+        print("v1 is greater than v2")
+        temp = v2
+        v2 = v1
+        v1 = temp
+        print("Printing vectors after swapping :")
+        print(v1)
+        print(v2)
+
+k = np.dot(v2, v1)//np.dot(v1, v1)
+print("K :", math.floor(k))
+v2 = np.subtract(v2, np.dot(k, v1))
+print("Printing Vectors :")
+print(v1)
+print(v2)
+print("Flag is: ", np.dot(v1,v2))
