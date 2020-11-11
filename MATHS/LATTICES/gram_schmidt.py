@@ -60,4 +60,5 @@ result_u4_1 = v_subtract(result_u4, v_divide(v_product(dot_product(l4, u2), u2),
 print(result_u4_1)
 u4 = v_subtract(result_u4_1, v_divide(v_product(dot_product(l4, u3), u3), dot_product(u3, u3)))
 print("U4 is: ", u4)
+print("Flag is: ", round(u4[1],5))
 
