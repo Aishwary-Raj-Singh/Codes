@@ -17,10 +17,16 @@ while True:
         break
 
 n = p * q
+#from factordb got the below p & q values
+n = 742449129124467073921545687640895127535705902454369756401331
+p = 752708788837165590355094155871
+q = 986369682585281993933185289261
+phi = (p-1) * (q-1)
+d = inverse(e, phi)
 
 flag = b"XXXXXXXXXXXXXXXXXXXXXXX"
 pt = bytes_to_long(flag)
-ct = pow(pt, e, n)
+#ct = pow(pt, e, n)
 
 print(f"n = {n}")
 print(f"e = {e}")
@@ -29,5 +35,5 @@ print(f"ct = {ct}")
 pt = pow(ct, d, n)
 decrypted = long_to_bytes(pt)
 print(decrypted)
-assert decrypted == flag
-print(decrypted)
+#assert decrypted == flag
+#print(decrypted)
