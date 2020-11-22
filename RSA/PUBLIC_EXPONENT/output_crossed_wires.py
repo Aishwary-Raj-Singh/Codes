@@ -41,22 +41,24 @@ pt = bytes_to_long(FLAG)
 e = int(0x10001)
 #d = inverse(e, phi)
 
-#my_key = (N, d)
 
-#friends = 5
-#friend_keys = [(N, getPrime(17)) for _ in range(friends)]
-
-#cipher = bytes_to_long(FLAG)
-
-#for key in friend_keys:
-#    cipher = pow(cipher, key[1], key[0])
-
-pt = pow(ct, d5, n)
-ct = pow(pt, e, n)
-pt = pow(ct, d0, n)
+pt = pow(ct, d1, n)
 decrypted = long_to_bytes(pt)
 print(decrypted)
-
-#print(f"My private key: {my_key}")
-#print(f"My Friend's public keys: {friend_keys}")
-#print(f"Encrypted flag: {cipher}")
+pt = pow(pt, d2, n)
+decrypted = long_to_bytes(pt)
+print(decrypted)
+pt = pow(pt, d3, n)
+decrypted = long_to_bytes(pt)
+print(decrypted)
+pt = pow(pt, d4, n)
+decrypted = long_to_bytes(pt)
+print(decrypted)
+pt = pow(pt, d5, n)
+decrypted = long_to_bytes(pt)
+print(decrypted)
+#pt = pow(pt, d0, n)
+#ct = pow(pt, e, n)
+#pt = pow(ct, d0, n)
+decrypted = long_to_bytes(pt)
+print(decrypted)
