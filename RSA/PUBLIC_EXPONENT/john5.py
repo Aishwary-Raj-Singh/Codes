@@ -13,7 +13,7 @@ while d == -1:
     phi = (p - 1) * (q - 1)
     d = inverse(e, phi)
 
-n = p * q
+#n = p * q
 
 flag = b"XXXXXXXXXXXXXXXXXXXXXXX"
 pt = bytes_to_long(flag)
